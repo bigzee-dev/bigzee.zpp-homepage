@@ -10,7 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #121212;
 }
 
 .container {
@@ -19,5 +19,5 @@ body {
 
 #datetime {
     font-size: 2rem;
-    color: #333;
+    color: #FFFFFF;
 }
