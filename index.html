@@ -5,25 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bigzee.app-homepage</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Add this script to load the Turnstile library -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <div class="container">
         <!-- HTML form with Turnstile widget -->
-    <form action="your-form-endpoint" method="POST">
-      <!-- Your form fields here -->
-      <input type="text" name="name" required placeholder="Your Name">
-      <input type="email" name="email" required placeholder="Your Email">
+    <form id="myForm" action="/submit" method="POST">
+  <!-- Your form fields here -->
+  <div
+    class="cf-turnstile"
+    data-sitekey="0x4AAAAAAAzDgEbreBlRQeR1"
+    data-theme="light"
+    data-action="managed"
+  ></div>
+  <button type="submit" disabled id="submitBtn">Submit</button>
+</form>
 
-      <!-- Cloudflare Turnstile widget -->
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAAzDgEbreBlRQeR1" data-callback="javascriptCallback"></div>
+<script>
+  // Render the Turnstile widget with 'managed' mode
+  turnstile.render('.cf-turnstile', {
+    callback: (token) => {
+      // Enable submit button once the user clicks the checkbox and passes verification
+      document.getElementById("submitBtn").disabled = false;
+    }
+  });
+</script>
 
-      <button type="submit">Submit</button>
-    </form>  
-
-    </div>
-
-     <!-- Load the Turnstile JavaScript API -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
 </body>
 </html>
