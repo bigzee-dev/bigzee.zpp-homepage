@@ -8,8 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <div id="datetime"></div>
+        <!-- HTML form with Turnstile widget -->
+    <form action="your-form-endpoint" method="POST">
+      <!-- Your form fields here -->
+      <input type="text" name="name" required placeholder="Your Name">
+      <input type="email" name="email" required placeholder="Your Email">
+
+      <!-- Cloudflare Turnstile widget -->
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAAzDgEbreBlRQeR1" data-callback="javascriptCallback"></div>
+
+      <button type="submit">Submit</button>
+    </form>  
+
     </div>
-    <script src="script.js"></script>
+
+     <!-- Load the Turnstile JavaScript API -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    
 </body>
 </html>
