@@ -11,27 +11,29 @@
 <body>
     <div class="container">
         <!-- HTML form with Turnstile widget -->
-    <form id="myForm" action="/submit" method="POST">
-  <!-- Your form fields here -->
-  <div
-    class="cf-turnstile"
-    data-sitekey="0x4AAAAAAAzDgEbreBlRQeR1"
-    data-theme="light"
-    data-action="managed"
-  ></div>
-  <button type="submit" disabled id="submitBtn">Submit</button>
-</form>
-
-<script>
-  // Render the Turnstile widget with 'managed' mode
-  turnstile.render('.cf-turnstile', {
+      <form id="myForm" action="/submit" method="POST">
+        <!-- Your form fields here -->
+        <!-- <div
+          class="cf-turnstile"
+          data-sitekey="0x4AAAAAAAzDgEbreBlRQeR1"
+          data-theme="light"
+          data-action="managed"
+        ></div> -->
+        <button type="submit" disabled id="submitBtn">Submit</button>
+      </form>
+      <div>
+          <h2>Public Image from S3 Bucket</h2>
+          <img src="https://kei-tests.s3.us-east-1.amazonaws.com/lady-laptop.jpg" alt="My Public Image"  />
+      </div>              
+  </body>
+  <!-- 
+  <script>
+    // Render the Turnstile widget with 'managed' mode
+    turnstile.render('.cf-turnstile', {
     callback: (token) => {
-      // Enable submit button once the user clicks the checkbox and passes verification
+    // Enable submit button once the user clicks the checkbox and passes verification
       document.getElementById("submitBtn").disabled = false;
-    }
-  });
-</script>
-
-    
-</body>
+      }
+    });
+  </script> -->
 </html>
