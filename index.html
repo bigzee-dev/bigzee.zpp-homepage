@@ -3,37 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bigzee.app-homepage</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Add this script to load the Turnstile library -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <title>Modern Mechanic</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .primary-color {
+            color: #004d40; /* Dark Green */
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <!-- HTML form with Turnstile widget -->
-      <form id="myForm" action="/submit" method="POST">
-        <!-- Your form fields here -->
-        <!-- <div
-          class="cf-turnstile"
-          data-sitekey="0x4AAAAAAAzDgEbreBlRQeR1"
-          data-theme="light"
-          data-action="managed"
-        ></div> -->
-        <button type="submit" disabled id="submitBtn">Submit</button>
-      </form>
-      <div>
-          <h2>Public Image from S3 Bucket</h2>
-          <img src="https://d1p77ji2s21cvs.cloudfront.net/lady-laptop.jpg" alt="My Public Image"/>
-      </div>              
-  </body>
-  <!-- 
-  <script>
-    // Render the Turnstile widget with 'managed' mode
-    turnstile.render('.cf-turnstile', {
-    callback: (token) => {
-    // Enable submit button once the user clicks the checkbox and passes verification
-      document.getElementById("submitBtn").disabled = false;
-      }
-    });
-  </script> -->
+<body class="bg-gray-100 text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-lg font-bold primary-color">Modern Mechanic</div>
+            <div class="flex space-x-4">
+                <a href="#" class="primary-color"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="primary-color"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="primary-color" id="whatsapp-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-white py-10">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl font-bold primary-color mb-4">Welcome to Modern Mechanic</h1>
+            <p class="text-lg text-gray-600">Your trusted partner for all automotive needs.</p>
+            <img src="https://d1p77ji2s21cvs.cloudfront.net/lady-laptop.jpg" alt="Mechanic" class="mx-auto mt-6 w-1/2 rounded-lg shadow-md">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold primary-color mb-6">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fas fa-tools fa-2x primary-color mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">General Repair</h3>
+                    <p class="text-gray-600">We offer comprehensive repair services for all types of vehicles.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fas fa-oil-can fa-2x primary-color mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Oil Change</h3>
+                    <p class="text-gray-600">Keep your engine running smoothly with our oil change services.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fas fa-car-battery fa-2x primary-color mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Battery Replacement</h3>
+                    <p class="text-gray-600">Reliable battery replacement services to keep you on the road.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="bg-white py-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold primary-color mb-6">About Us</h2>
+            <p class="text-gray-600">Modern Mechanic has been serving the community for over 20 years. Our team of experienced professionals is dedicated to providing top-notch automotive services with a focus on customer satisfaction.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold primary-color mb-6">Contact Us</h2>
+            <p class="text-gray-600">For inquiries or to schedule an appointment, please contact us at:</p>
+            <p class="text-gray-600">Phone: (123) 456-7890</p>
+            <p class="text-gray-600">Email: info@modernmechanic.com</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <p class="text-gray-600">&copy; 2023 Modern Mechanic. All rights reserved.</p>
+            <div class="flex space-x-4">
+                <a href="#" class="primary-color"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="primary-color"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="primary-color" id="footer-whatsapp-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('whatsapp-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                window.location.href = 'whatsapp://send?phone=77810825';
+            } else {
+                alert('Our WhatsApp number is 77810825');
+            }
+        });
+
+        document.getElementById('footer-whatsapp-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                window.location.href = 'whatsapp://send?phone=77810825';
+            } else {
+                alert('Our WhatsApp number is 77810825');
+            }
+        });
+    </script>
+</body>
 </html>
